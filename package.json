@@ -1,6 +1,7 @@
 {
   "name": "mern-tutorial",
   "version": "1.0.0",
+  
   "description": "goalsetter-app",
   "main": "server.js",
   "scripts": {
