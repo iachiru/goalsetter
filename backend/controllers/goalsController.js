@@ -25,6 +25,7 @@ const setGoal = asyncHandler(async (req, res) => {
 
   const goal = await Goal.create({
     text: req.body.text,
+    user: req.user.id,
   });
   return res.status(200).json(goal);
 });
@@ -40,6 +41,9 @@ const updateGoal = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Goal not found");
   }
+
+  const user = await User.findById(req.user.id);
+
   // Chech for user
   if (!req.user) {
     res.status(401);

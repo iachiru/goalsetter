@@ -4,7 +4,6 @@ const User = require("../model/userModel");
 
 const protect = asyncHandler(async (req, res, next) => {
   let token;
-  console.log("headers", req.headers);
 
   if (
     req.headers.authorization &&
@@ -14,12 +13,9 @@ const protect = asyncHandler(async (req, res, next) => {
       // get token from header
       token = req.headers.authorization.split(" ")[1];
 
-      console.log("token", token);
-
       // Verify token
 
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      console.log("decoded token", decoded);
 
       // Get user from the token
 
